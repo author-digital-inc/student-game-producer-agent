@@ -1,0 +1,15 @@
+description: >
+  ST-204 is still in Implementation. Two downstream stories (ST-205, ST-206)
+  declare blocked_by: [ST-204], so both must appear in blocked_stories. ST-204's
+  owner Jules is committed 11 days against a 9-day capacity this sprint, so he
+  must show as over-allocated. Schedule itself is healthy (GREEN).
+as_of: "2026-10-13"
+
+expect:
+  schedule.verdict: green
+  schedule.stories_remaining: 4
+
+include_ids:
+  blocked_stories: [ST-205, ST-206]
+
+overallocated_members: [Jules]

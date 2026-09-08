@@ -1,0 +1,7 @@
+# Runtime dependencies. `pip install -r requirements.txt`
+# (pyproject.toml has the same list plus packaging metadata if you prefer
+#  `pip install -e .` — either works; the code runs from the repo root regardless.)
+
+anthropic>=0.40      # only needed for --live runs; MOCK mode imports it lazily
+pyyaml>=6.0
+requests>=2.31       # only needed for --board github

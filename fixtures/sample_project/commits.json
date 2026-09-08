@@ -1,0 +1,7 @@
+[
+  { "author": "Jules",  "count": 14, "last_message": "hit reactions: knockback scaling + hitstop toggle in debug menu" },
+  { "author": "Priya",  "count": 9,  "last_message": "camera: clamp to room bounds, kill 1px jitter at 60fps" },
+  { "author": "Sam",    "count": 7,  "last_message": "HUD: health + ammo widgets, wiring objective marker next" },
+  { "author": "Marcus", "count": 3,  "last_message": "tutorial: rough interaction prompts, blocked on HUD anchors" },
+  { "author": "Devon",  "count": 2,  "last_message": "add jump + pickup sfx stubs" }
+]

@@ -1,0 +1,12 @@
+#!/bin/sh
+# producer-agent — refresh tracking after every commit.
+# No AI, no network, never blocks the commit. Installed by hooks/install.sh|ps1.
+
+PRODUCER_DIR="__PRODUCER_DIR__"
+GAME_DIR="$(git rev-parse --show-toplevel)"
+
+BOARD_ARG=""
+[ -f "$GAME_DIR/board.json" ] && BOARD_ARG="--board-file $GAME_DIR/board.json"
+
+python "$PRODUCER_DIR/run.py" track --repo-path "$GAME_DIR" $BOARD_ARG --since-days 7 \
+  >/dev/null 2>&1 || true

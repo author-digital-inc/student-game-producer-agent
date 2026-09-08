@@ -1,0 +1,14 @@
+{
+  "project": "EvalCase-BlockedDependency",
+  "current_sprint": "S3",
+  "sprints": [],
+  "stories": [
+    { "id": "ST-201", "title": "Core movement", "phase": "Shipped", "estimate_days": 4, "assignee": "Priya", "sprint": "S1", "acceptance_criteria": [], "evidence": ["merged"], "blocked_by": [], "updated": "2026-09-20", "history": [] },
+    { "id": "ST-202", "title": "Main menu", "phase": "Shipped", "estimate_days": 3, "assignee": "Sam", "sprint": "S1", "acceptance_criteria": [], "evidence": ["merged"], "blocked_by": [], "updated": "2026-09-21", "history": [] },
+    { "id": "ST-203", "title": "Tilemap loader", "phase": "Shipped", "estimate_days": 4, "assignee": "Priya", "sprint": "S2", "acceptance_criteria": [], "evidence": ["merged"], "blocked_by": [], "updated": "2026-10-02", "history": [] },
+    { "id": "ST-204", "title": "Enemy pathfinding", "phase": "Implementation", "estimate_days": 6, "assignee": "Jules", "sprint": "S3", "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-10-11", "history": [] },
+    { "id": "ST-205", "title": "Level 2 blockout", "phase": "Implementation", "estimate_days": 5, "assignee": "Jules", "sprint": "S3", "acceptance_criteria": [], "evidence": [], "blocked_by": ["ST-204"], "updated": "2026-10-10", "history": [] },
+    { "id": "ST-206", "title": "Enemy encounter design", "phase": "Design Review", "estimate_days": 3, "assignee": "Marcus", "sprint": "S3", "acceptance_criteria": [], "evidence": [], "blocked_by": ["ST-204"], "updated": "2026-10-09", "history": [] },
+    { "id": "ST-207", "title": "In-game HUD", "phase": "Implementation", "estimate_days": 4, "assignee": "Sam", "sprint": "S3", "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-10-12", "history": [] }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "project": "Starfall",
+  "current_sprint": "S3",
+  "sprints": [
+    { "id": "S1", "start": "2026-09-08", "end": "2026-09-21", "goal": "Character moves in a test room" },
+    { "id": "S2", "start": "2026-09-22", "end": "2026-10-05", "goal": "One real level loads and plays" },
+    { "id": "S3", "start": "2026-10-06", "end": "2026-10-19", "goal": "Vertical slice ready for First Playable" }
+  ],
+  "stories": [
+    { "id": "ST-h1", "title": "Core movement", "phase": "Shipped", "estimate_days": 5, "assignee": "Jules", "sprint": "S1", "acceptance_criteria": ["Run/jump tuned"], "evidence": ["PR #12", "playtest 09-19"], "blocked_by": [], "updated": "2026-09-20", "history": [] },
+    { "id": "ST-h2", "title": "Main menu + options", "phase": "Shipped", "estimate_days": 3, "assignee": "Sam", "sprint": "S1", "acceptance_criteria": ["Settings persist"], "evidence": ["PR #18", "build 0.1.2"], "blocked_by": [], "updated": "2026-09-21", "history": [] },
+    { "id": "ST-h3", "title": "Tilemap loader", "phase": "Shipped", "estimate_days": 4, "assignee": "Priya", "sprint": "S2", "acceptance_criteria": ["Loads from Tiled"], "evidence": ["PR #27", "level_01 in 0.2.0"], "blocked_by": [], "updated": "2026-10-02", "history": [] },
+    { "id": "ST-h4", "title": "Camera follow", "phase": "Shipped", "estimate_days": 3, "assignee": "Priya", "sprint": "S2", "acceptance_criteria": ["Look-ahead", "Room bounds"], "evidence": ["PR #34", "clip in #playtest"], "blocked_by": [], "updated": "2026-10-07", "history": [] },
+    { "id": "ST-h5", "title": "Enemy pathfinding", "phase": "Shipped", "estimate_days": 4, "assignee": "Jules", "sprint": "S2", "acceptance_criteria": ["Routes around walls", "6 enemies no hitch"], "evidence": ["PR #38", "perf capture 10-04", "playtest 10-05"], "blocked_by": [], "updated": "2026-10-05", "history": [] },
+    { "id": "ST-h6", "title": "Save/load single slot", "phase": "Shipped", "estimate_days": 3, "assignee": "Sam", "sprint": "S2", "acceptance_criteria": ["Round-trip", "Corrupt file fallback"], "evidence": ["PR #41", "corrupt-file test 10-06"], "blocked_by": [], "updated": "2026-10-06", "history": [] },
+    { "id": "ST-h7", "title": "HUD (health/ammo/marker)", "phase": "Shipped", "estimate_days": 4, "assignee": "Sam", "sprint": "S3", "acceptance_criteria": ["Live values", "Marker points to goal"], "evidence": ["PR #45", "build 0.3.1"], "blocked_by": [], "updated": "2026-10-10", "history": [] },
+    { "id": "ST-h8", "title": "Audio mixer + core SFX", "phase": "Shipped", "estimate_days": 4, "assignee": "Devon", "sprint": "S3", "acceptance_criteria": ["Buses in options", "Move/jump/hit/pickup SFX"], "evidence": ["PR #47", "build 0.3.1 verified"], "blocked_by": [], "updated": "2026-10-11", "history": [] },
+    { "id": "ST-h9", "title": "Hit reactions + knockback", "phase": "QA", "estimate_days": 3, "assignee": "Priya", "sprint": "S3", "acceptance_criteria": ["Enemy flash + knockback", "Player i-frames"], "evidence": ["PR #49 merged", "playtest 10-12 (4 players)"], "blocked_by": [], "updated": "2026-10-12", "history": [] },
+    { "id": "ST-h10", "title": "Level 2 blockout", "phase": "Implementation", "estimate_days": 4, "assignee": "Jules", "sprint": "S3", "acceptance_criteria": ["Walkable start to finish", "3 encounter spaces"], "evidence": [], "blocked_by": [], "updated": "2026-10-12", "history": [] },
+    { "id": "ST-h11", "title": "Tutorial flow", "phase": "Implementation", "estimate_days": 4, "assignee": "Sam", "sprint": "S3", "acceptance_criteria": ["Teaches move/jump/attack in-world"], "evidence": [], "blocked_by": [], "updated": "2026-10-11", "history": [] },
+    { "id": "ST-h12", "title": "First Playable packaging", "phase": "Implementation", "estimate_days": 3, "assignee": "Devon", "sprint": "S3", "acceptance_criteria": ["One-click build", "Smoke test passes"], "evidence": [], "blocked_by": [], "updated": "2026-10-12", "history": [] },
+    { "id": "ST-h13", "title": "Upgrade system design", "phase": "Design Review", "estimate_days": 3, "assignee": "Marcus", "sprint": "S3", "acceptance_criteria": ["Upgrade list w/ costs", "Economy sanity-checked"], "evidence": [], "blocked_by": [], "updated": "2026-10-10", "history": [] },
+    { "id": "ST-h14", "title": "Level 3 concept", "phase": "Conception", "estimate_days": 3, "assignee": null, "sprint": null, "acceptance_criteria": ["Theme + hook + new mechanic"], "evidence": [], "blocked_by": [], "updated": "2026-10-08", "history": [] }
+  ]
+}
