@@ -1,0 +1,10 @@
+# Keep line endings sane across Windows / macOS / Linux.
+* text=auto eol=lf
+
+# Git hooks and shell scripts MUST stay LF or the shebang breaks.
+hooks/post-commit  text eol=lf
+hooks/post-merge   text eol=lf
+*.sh               text eol=lf
+
+# PowerShell is happier with CRLF.
+*.ps1              text eol=crlf

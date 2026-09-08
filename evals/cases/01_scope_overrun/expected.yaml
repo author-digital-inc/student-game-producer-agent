@@ -1,0 +1,14 @@
+description: >
+  Two stories shipped in 4.5 elapsed sprints (velocity 0.44) with 6 left and
+  only 5.5 sprints of runway. The schedule verdict must be RED, and the one
+  story untouched for weeks must show up as aging.
+as_of: "2026-11-10"
+
+expect:
+  schedule.verdict: red
+  schedule.stories_remaining: 6
+  schedule.velocity_stories_per_sprint: 0.44
+  schedule.projected_sprints_to_finish: 13.6
+
+include_ids:
+  aging_stories: [ST-104]

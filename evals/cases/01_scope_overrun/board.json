@@ -1,0 +1,15 @@
+{
+  "project": "EvalCase-ScopeOverrun",
+  "current_sprint": "S5",
+  "sprints": [],
+  "stories": [
+    { "id": "ST-101", "title": "Vertical slice", "phase": "Shipped", "estimate_days": 3, "assignee": "Priya", "sprint": "S2", "acceptance_criteria": [], "evidence": ["merged"], "blocked_by": [], "updated": "2026-10-01", "history": [] },
+    { "id": "ST-102", "title": "Main menu", "phase": "Shipped", "estimate_days": 2, "assignee": "Sam", "sprint": "S2", "acceptance_criteria": [], "evidence": ["merged"], "blocked_by": [], "updated": "2026-10-03", "history": [] },
+    { "id": "ST-103", "title": "Combat core", "phase": "Implementation", "estimate_days": 5, "assignee": "Jules", "sprint": "S5", "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-11-05", "history": [] },
+    { "id": "ST-104", "title": "Enemy AI", "phase": "Implementation", "estimate_days": 5, "assignee": "Jules", "sprint": "S5", "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-10-15", "history": [] },
+    { "id": "ST-105", "title": "Level 2", "phase": "Design Review", "estimate_days": 4, "assignee": "Marcus", "sprint": "S5", "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-11-06", "history": [] },
+    { "id": "ST-106", "title": "Boss encounter", "phase": "Conception", "estimate_days": 6, "assignee": null, "sprint": null, "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-11-01", "history": [] },
+    { "id": "ST-107", "title": "Audio pass", "phase": "Implementation", "estimate_days": 4, "assignee": "Devon", "sprint": "S5", "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-11-07", "history": [] },
+    { "id": "ST-108", "title": "UI polish", "phase": "Conception", "estimate_days": 3, "assignee": null, "sprint": null, "acceptance_criteria": [], "evidence": [], "blocked_by": [], "updated": "2026-11-02", "history": [] }
+  ]
+}

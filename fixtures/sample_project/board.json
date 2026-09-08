@@ -1,0 +1,184 @@
+{
+  "project": "Starfall",
+  "current_sprint": "S3",
+  "sprints": [
+    { "id": "S1", "start": "2026-09-08", "end": "2026-09-21", "goal": "Character moves in a test room" },
+    { "id": "S2", "start": "2026-09-22", "end": "2026-10-05", "goal": "One real level loads and plays" },
+    { "id": "S3", "start": "2026-10-06", "end": "2026-10-19", "goal": "Vertical slice ready for First Playable" }
+  ],
+  "stories": [
+    {
+      "id": "ST-1", "title": "Core character movement (run, jump, coyote time)",
+      "phase": "Shipped", "estimate_days": 5, "assignee": "Jules", "sprint": "S1",
+      "acceptance_criteria": [
+        "Player can run and jump with tuned acceleration",
+        "Coyote time and jump buffer feel responsive in playtest"
+      ],
+      "evidence": ["PR #12 merged", "playtest 09-19: 4/4 players called movement 'good'"],
+      "blocked_by": [], "updated": "2026-09-20",
+      "history": [{ "phase": "Implementation", "date": "2026-09-10" }, { "phase": "Shipped", "date": "2026-09-20" }]
+    },
+    {
+      "id": "ST-2", "title": "Main menu and options screen",
+      "phase": "Shipped", "estimate_days": 3, "assignee": "Sam", "sprint": "S1",
+      "acceptance_criteria": ["New Game / Options / Quit work", "Resolution and volume settings persist"],
+      "evidence": ["PR #18 merged", "build 0.1.2 verified by Devon"],
+      "blocked_by": [], "updated": "2026-09-21",
+      "history": [{ "phase": "Shipped", "date": "2026-09-21" }]
+    },
+    {
+      "id": "ST-5", "title": "Tilemap level loader",
+      "phase": "Shipped", "estimate_days": 4, "assignee": "Priya", "sprint": "S2",
+      "acceptance_criteria": ["Levels load from Tiled export", "Collision layer imports correctly"],
+      "evidence": ["PR #27 merged", "level_01 loads in build 0.2.0"],
+      "blocked_by": [], "updated": "2026-10-02",
+      "history": [{ "phase": "Shipped", "date": "2026-10-02" }]
+    },
+    {
+      "id": "ST-7", "title": "Camera follow with look-ahead and room bounds",
+      "phase": "Polish", "estimate_days": 3, "assignee": "Priya", "sprint": "S3",
+      "acceptance_criteria": [
+        "Camera follows player with smoothed look-ahead",
+        "Camera never shows outside the room bounds",
+        "No visible jitter at 60fps on the target laptop"
+      ],
+      "evidence": [
+        "PR #34 merged",
+        "playtest 10-10: no jitter reported by 3 players",
+        "clip in #playtest channel showing bounds clamp"
+      ],
+      "blocked_by": [], "updated": "2026-10-11",
+      "history": [{ "phase": "Implementation", "date": "2026-10-01" }, { "phase": "QA", "date": "2026-10-08" }, { "phase": "Polish", "date": "2026-10-11" }]
+    },
+    {
+      "id": "ST-9", "title": "Enemy pathfinding around static obstacles",
+      "phase": "QA", "estimate_days": 4, "assignee": "Jules", "sprint": "S3",
+      "acceptance_criteria": [
+        "Grunt enemy navigates around walls to reach the player",
+        "No pathing hitches when 6 enemies are active",
+        "Enemies do not clip through thin platforms"
+      ],
+      "evidence": ["PR #38 merged (basic A* only)"],
+      "blocked_by": [], "updated": "2026-10-09",
+      "history": [{ "phase": "Implementation", "date": "2026-09-28" }, { "phase": "QA", "date": "2026-10-09" }]
+    },
+    {
+      "id": "ST-12", "title": "Save and load (single slot)",
+      "phase": "QA", "estimate_days": 3, "assignee": "Sam", "sprint": "S3",
+      "acceptance_criteria": [
+        "Game state round-trips through save then load",
+        "Corrupt or missing save file falls back to a new game without crashing"
+      ],
+      "evidence": ["PR #41 merged", "happy-path save/load verified in build 0.3.0"],
+      "blocked_by": [], "updated": "2026-10-10",
+      "history": [{ "phase": "Implementation", "date": "2026-10-03" }, { "phase": "QA", "date": "2026-10-10" }]
+    },
+    {
+      "id": "ST-14", "title": "Combat hit reactions and knockback",
+      "phase": "Implementation", "estimate_days": 5, "assignee": "Jules", "sprint": "S3",
+      "acceptance_criteria": [
+        "Hit enemies flash and get knocked back proportional to hit",
+        "Player takes knockback and i-frames on hit",
+        "Hitstop tuned and toggleable in a debug menu"
+      ],
+      "evidence": [],
+      "blocked_by": [], "updated": "2026-10-12",
+      "history": [{ "phase": "Implementation", "date": "2026-10-06" }]
+    },
+    {
+      "id": "ST-15", "title": "In-game HUD (health, ammo, objective marker)",
+      "phase": "Implementation", "estimate_days": 4, "assignee": "Sam", "sprint": "S3",
+      "acceptance_criteria": [
+        "Health and ammo update live",
+        "Objective marker points to the current goal",
+        "HUD scales cleanly at 1080p and 1440p"
+      ],
+      "evidence": [],
+      "blocked_by": [], "updated": "2026-10-12",
+      "history": [{ "phase": "Implementation", "date": "2026-10-07" }]
+    },
+    {
+      "id": "ST-16", "title": "Audio mixer, SFX buses, and first pass sound set",
+      "phase": "Implementation", "estimate_days": 4, "assignee": "Devon", "sprint": "S2",
+      "acceptance_criteria": [
+        "Master / Music / SFX buses controllable from options",
+        "Movement, jump, hit, and pickup sounds present",
+        "No clipping at max volume"
+      ],
+      "evidence": [],
+      "blocked_by": [], "updated": "2026-09-25",
+      "history": [{ "phase": "Implementation", "date": "2026-09-22" }]
+    },
+    {
+      "id": "ST-18", "title": "Level 2 blockout (greybox, playable start to finish)",
+      "phase": "Implementation", "estimate_days": 4, "assignee": "Jules", "sprint": "S3",
+      "acceptance_criteria": [
+        "Level 2 is walkable from entrance to exit",
+        "At least 3 encounter spaces roughed in",
+        "Reviewed by Design Lead"
+      ],
+      "evidence": [],
+      "blocked_by": ["ST-9"], "updated": "2026-10-08",
+      "history": [{ "phase": "Design Review", "date": "2026-10-01" }, { "phase": "Implementation", "date": "2026-10-08" }]
+    },
+    {
+      "id": "ST-20", "title": "Tutorial / first-time-user flow",
+      "phase": "Implementation", "estimate_days": 4, "assignee": "Marcus", "sprint": "S3",
+      "acceptance_criteria": [
+        "New player is taught move, jump, attack, interact in-world (no text walls)",
+        "A playtester who has never seen the game can clear the tutorial unaided"
+      ],
+      "evidence": [],
+      "blocked_by": ["ST-15"], "updated": "2026-10-09",
+      "history": [{ "phase": "Implementation", "date": "2026-10-07" }]
+    },
+    {
+      "id": "ST-22", "title": "Boss 1 encounter design (paper + whitebox plan)",
+      "phase": "Design Review", "estimate_days": 3, "assignee": "Marcus", "sprint": "S2",
+      "acceptance_criteria": [
+        "Three attack patterns documented with timings",
+        "Arena layout sketched",
+        "Tech Lead confirms it is buildable in the engine"
+      ],
+      "evidence": [],
+      "blocked_by": [], "updated": "2026-09-20",
+      "history": [{ "phase": "Conception", "date": "2026-09-12" }, { "phase": "Design Review", "date": "2026-09-20" }]
+    },
+    {
+      "id": "ST-24", "title": "Upgrade / progression system design",
+      "phase": "Design Review", "estimate_days": 3, "assignee": "Marcus", "sprint": "S3",
+      "acceptance_criteria": [
+        "Upgrade list with costs and effects",
+        "Economy math sanity-checked against level length"
+      ],
+      "evidence": [],
+      "blocked_by": [], "updated": "2026-10-08",
+      "history": [{ "phase": "Design Review", "date": "2026-10-05" }]
+    },
+    {
+      "id": "ST-26", "title": "Level 3 concept",
+      "phase": "Conception", "estimate_days": 3, "assignee": null, "sprint": null,
+      "acceptance_criteria": ["Theme, hook, and new mechanic identified", "One-page brief approved by team"],
+      "evidence": [], "blocked_by": [], "updated": "2026-10-06",
+      "history": [{ "phase": "Conception", "date": "2026-10-06" }]
+    },
+    {
+      "id": "ST-28", "title": "New Game+ mode",
+      "phase": "Conception", "estimate_days": 5, "assignee": null, "sprint": null,
+      "acceptance_criteria": ["Rules for a second playthrough defined", "Scoped as cut-able if time is short"],
+      "evidence": [], "blocked_by": [], "updated": "2026-09-30",
+      "history": [{ "phase": "Conception", "date": "2026-09-30" }]
+    },
+    {
+      "id": "ST-30", "title": "Accessibility options (remap, hold-vs-toggle, text size)",
+      "phase": "Conception", "estimate_days": 4, "assignee": null, "sprint": null,
+      "acceptance_criteria": [
+        "Full control remapping",
+        "Hold actions have a toggle alternative",
+        "UI text scale option"
+      ],
+      "evidence": [], "blocked_by": [], "updated": "2026-10-01",
+      "history": [{ "phase": "Conception", "date": "2026-10-01" }]
+    }
+  ]
+}

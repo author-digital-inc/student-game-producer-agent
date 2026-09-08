@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "student-game-producer-agent"
+version = "0.1.0"
+description = "An agentic producer workflow for 5-person student game teams on a 20-week project."
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.40",   # Claude API client. Install the latest; the code degrades
+                         # gracefully on older versions (see producer/llm.py).
+    "pyyaml>=6.0",        # config/team.yaml and eval expectations
+    "requests>=2.31",     # GitHub REST calls in producer/board.py (GitHubBoard only)
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools]
+packages = ["producer", "producer.agents"]
+
+# --------------------------------------------------------------------------
+# Quick start
+#   python -m venv .venv && . .venv/Scripts/activate   (Windows)
+#   pip install -e .
+#   python run.py demo                        # runs offline against the fixture
+#   python run.py review --week 6 --live       # calls the real Claude API
+# --------------------------------------------------------------------------

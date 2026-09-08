@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Local secrets / environment
+.env
+
+# Generated run output (keep the folder, ignore the reports the tool writes)
+reports/*
+!reports/.gitkeep
+
+# Local run history written by producer/state.py
+state/

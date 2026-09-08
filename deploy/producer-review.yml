@@ -1,0 +1,56 @@
+# Copy this into YOUR GAME REPO at .github/workflows/producer.yml
+#
+# Repo secrets to set (Settings -> Secrets and variables -> Actions):
+#   ANTHROPIC_API_KEY   (required for the AI review)
+#   DISCORD_WEBHOOK_URL (optional — posts the one-line summary to a channel)
+# GITHUB_TOKEN is provided automatically.
+#
+# Assumes the producer tool lives at tools/producer/ inside your game repo.
+# If it's a separate repo, add a checkout step for it and adjust the paths.
+
+name: Producer review
+
+on:
+  schedule:
+    - cron: "0 16 * * 1"        # Mondays 16:00 UTC — tweak to your team's timezone
+  issues:
+    types: [closed]            # a shipped story can move the schedule
+  workflow_dispatch: {}         # let anyone run it by hand from the Actions tab
+
+permissions:
+  contents: read
+  issues: write                 # to open the "attention needed" issue
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # full history so commit-activity tracking works
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        working-directory: tools/producer
+        run: pip install -r requirements.txt
+
+      - name: Review (auto — silent unless a human is needed)
+        working-directory: tools/producer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          python run.py track --repo-path "$GITHUB_WORKSPACE" --since-days 7
+          python run.py review --auto --post --live --board github
+
+      - name: Keep the tracking history
+        uses: actions/upload-artifact@v4
+        with:
+          name: producer-state
+          path: tools/producer/state/
+          retention-days: 90

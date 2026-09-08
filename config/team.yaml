@@ -1,0 +1,48 @@
+# The one file you edit to make this yours. Everything the tool reports is
+# computed relative to these dates and capacities, so keep them honest.
+
+project: Starfall
+start_date: 2026-09-08     # first Monday of the project
+ship_date: 2027-01-26      # the hard deadline (final presentation / submission)
+sprint_length_days: 14
+
+milestones:
+  - name: First Playable
+    date: 2026-10-20
+  - name: Alpha
+    date: 2026-11-24
+  - name: Beta
+    date: 2026-12-15
+  - name: Gold
+    date: 2027-01-19
+
+# capacity_days_per_sprint = realistic hands-on-the-game days in a 2-week sprint
+# AFTER classes, meetings, and life. Be pessimistic; teams plan at 10 and deliver 6.
+team:
+  - { name: Priya,  role: Tech Lead,             capacity_days_per_sprint: 7 }
+  - { name: Marcus, role: Design Lead,           capacity_days_per_sprint: 7 }
+  - { name: Jules,  role: Gameplay Builder,      capacity_days_per_sprint: 9 }
+  - { name: Sam,    role: Systems & UI Builder,  capacity_days_per_sprint: 9 }
+  - { name: Devon,  role: QA & Audio,            capacity_days_per_sprint: 8 }
+
+# Who gets tagged when the tool decides a human is needed.
+producer: Priya
+
+# ---------------------------------------------------------------------------
+# Escalation: when `run.py review --auto` pulls a human in. If none of these
+# trip, the scheduled run stays silent — it just refreshes the tracking data.
+# Loosen these if the notifications feel noisy; tighten them near a milestone.
+# ---------------------------------------------------------------------------
+escalation:
+  schedule_verdict_at_or_worse_than: amber   # amber | red
+  notify_on_verdict_change: true             # green->amber, amber->red, etc.
+  over_allocation_days: 2                     # committed > capacity + this many days
+  aging_story_days: 10                        # a non-shipped story untouched this long
+  unproven_done: true                        # in QA/Polish, acceptance criteria lack evidence
+  new_blocker: true                          # a story became blocked since the last review
+
+# Used by --board github and by --post. Env vars GITHUB_REPO / GITHUB_TOKEN /
+# DISCORD_WEBHOOK_URL override these at runtime (the GitHub Action sets them).
+github:
+  repo: your-org/your-game
+discord_webhook_env: DISCORD_WEBHOOK_URL
